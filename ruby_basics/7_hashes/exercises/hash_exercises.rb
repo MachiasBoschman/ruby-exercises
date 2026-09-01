@@ -10,7 +10,7 @@ end
 
 def favorite_color(favorite_list)
   # return the value of the color key
-  return favorite_list[:color]
+  favorite_list[:color]
 end
 
 def favorite_number(favorite_list)
@@ -22,7 +22,7 @@ def update_favorite_movie(favorite_list, movie)
   # Step 1: add/update the key of movie (as a symbol)
   favorite_list[:movie] = movie
   # Step 2: return the hash (because Step 1 returns the value of the movie key)
-  return favorite_list
+  favorite_list
 end
 
 def remove_favorite_number(favorite_list)
