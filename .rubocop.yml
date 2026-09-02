@@ -1,0 +1,15 @@
+AllCops:
+  TargetRubyVersion: 3.4
+  NewCops: enable
+
+# Exercise files are small scripts, not libraries with public APIs.
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# RSpec describe blocks are legitimately long.
+Metrics/BlockLength:
+  Exclude:
+    - "**/spec/**/*"
