@@ -32,6 +32,7 @@ end
 def lucky_number(number = 7)
   "Today's lucky number is #{number}"
 end
+
 # method name: #ascii_code
 # parameter: character (a string)
 # return value: the character's ordinal number
@@ -40,6 +41,7 @@ end
 def ascii_code(character)
   character.length == 1 ? character.ord : 'Input Error'
 end
+
 # method name: #pet_pun
 # parameter: animal (a string)
 # return value: nil
@@ -57,7 +59,6 @@ def pet_pun(animal)
     puts "I think #{animal}s have pet-tential!"
   end
 end
-
 
 # method name: #twenty_first_century?
 # parameter: year (an integer)

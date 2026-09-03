@@ -33,7 +33,7 @@ end
 
 def isogram?(string)
   original_length = string.length
-  string_array = string.downcase.split('')
+  string_array = string.downcase.chars
   unique_length = string_array.uniq.length
   original_length == unique_length
 end
@@ -48,5 +48,5 @@ end
 def yell_greeting(string)
   name = string
   name.upcase!
-  greeting = "WASSAP, #{name}!"
+  "WASSAP, #{name}!"
 end
