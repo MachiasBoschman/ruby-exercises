@@ -12,4 +12,4 @@ def shift_char(char, shift_amount)
   (((char.ord - base + shift_amount) % 26) + base).chr
 end
 
-puts caesar_cipher('What a string!', 5)
+puts caesar_cipher('What a string!', 5) if __FILE__ == $PROGRAM_NAME

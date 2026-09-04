@@ -1,0 +1,77 @@
+# Knights Travails
+
+The Odin Project — Ruby course, *A Bit of Computer Science* (project 14 of 15).
+
+- Lesson: <https://www.theodinproject.com/lessons/ruby-knights-travails>
+- Source: [`ruby/computer_science/project_knights_travails.md`](https://github.com/TheOdinProject/curriculum/blob/2efc3daa345132680746f4a8a56a3abe535fd1eb/ruby/computer_science/project_knights_travails.md)
+  in `TheOdinProject/curriculum` @ `2efc3daa34`
+- Retrieved: 2026-09-04
+
+Everything below this line is the lesson text, copied verbatim.
+
+---
+
+### Introduction
+
+Now you're a pro with DFS and BFS.  Let's try using our search algorithms on a real problem.
+
+For this project, you'll need to use a data structure that's similar (but not identical) to a binary tree - graphs. For a good introduction on what graphs are, reference [Khan Academy's "Describing Graphs"](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/describing-graphs).
+
+Given enough turns, a knight on a standard 8x8 chess board can move from any square to any other square. Its basic move is two steps forward and one step to the side or one step forward and two steps to the side.  It can face any direction.
+
+All the possible places you can end up after one move look like this:
+
+![Knights Travails board](https://cdn.statically.io/gh/TheOdinProject/curriculum/d30038e0aaca1f35e58e205e37a21b2c9d31053d/ruby/computer_science/project_knights_travails/imgs/01.png)
+
+In this problem, the chessboard can be represented as a graph:
+
+Each square on the board is a node (or vertex).
+A knight’s valid moves from any square represent the edges (or connections) between the vertices.
+Thus, the problem of finding the shortest path for the knight’s movement becomes a graph traversal problem. The goal is to traverse the graph (the chessboard) to find the shortest route between two nodes (the start and end positions).
+
+#### Vertices and edges
+
+The vertices in this graph are each of the possible positions on the chessboard, represented by a pair of coordinates like `[x, y]`, where x and y are between 0 and 7.
+The edges are the valid knight moves between vertices. For example, from `[0,0]`, a knight can move to `[2,1]`, `[1,2]`, and so on. Each of these moves represents a connection between the vertex `[0,0]` and the other reachable vertices.
+
+#### Graph representation
+
+While solving this problem, you don’t need to explicitly create a graph object with vertices and edges. Instead, you can think of the graph as implicit. The knight starts on a specific vertex, and the algorithm will dynamically explore all possible moves (edges) to other vertices (positions on the board) as it traverses the board.
+
+### Assignment
+
+<div class="lesson-content__panel" markdown="1">
+
+Your task is to build a function `knight_moves` that shows the shortest possible way to get from one square to another by outputting all squares the knight will stop on along the way.
+
+You can think of the board as having 2-dimensional coordinates. Calling your function would therefore look like:
+
+`knight_moves([0,0],[1,2]) # returns [[0,0],[1,2]]`
+
+<div class="lesson-note" markdown="1">
+
+#### Multiple shortest paths
+
+Sometimes *there is more than one fastest path*. Examples of this are shown below. Any answer is correct as long as it follows the rules and gives the shortest possible path.
+
+- `knight_moves([0,0],[3,3])` may return `[[0,0],[2,1],[3,3]]` or `[[0,0],[1,2],[3,3]]`.
+- `knight_moves([3,3],[0,0])` may return `[[3,3],[2,1],[0,0]]` or `[[3,3],[1,2],[0,0]]`.
+- `knight_moves([0,0],[7,7])` may return `[[0,0],[2,1],[4,2],[6,3],[4,4],[6,5],[7,7]]` or `[[0,0],[2,1],[4,2],[6,3],[7,5],[5,6],[7,7]]` or other possible shortest paths.
+
+</div>
+
+1. Think about the rules of the board and knight, make sure to follow them.
+1. From every square, multiple moves are possible. Choose a data structure that will allow you to work with them.  Don't allow any moves to go off the board.
+1. Both DFS and BFS are viable here, though think carefully about how each of them work. One of them will require you to handle the possibility of getting stuck in an endless cycle.
+1. Use the chosen search algorithm to find the shortest path between the starting square (or node) and the ending square.  Output what that full path looks like, e.g.:
+
+   ```bash
+   > knight_moves([3,3],[4,3])
+   => You made it in 3 moves!  Here's your path:
+     [3,3]
+     [4,5]
+     [2,4]
+     [4,3]
+   ```
+
+</div>
